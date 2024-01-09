@@ -1,40 +1,22 @@
 <?php
-// $array=array([0]);
-// print_r($array);
-// --------- 數字陣列 ---------
-// print "數值陣列<br>";
-// $a = array('hello','javascript','php');
-// $a[3] = 'css';
-// $a[6] = 'css';
-// // $a= array(3=>'java');
-// echo "aaa=";
-// print_r($a);
-// print('<br>');
+$array=array([0]);
+print_r($array);
+--------- 數字陣列 ---------
+print "數值陣列<br>";
+$a = array('hello','javascript','php');
+foreach($a as $v){
+  echo $v ."<br>";
+}
 
+$b = array(0 => 'hello',
+           1 => 'javascript',
+           2 => 'php');
+print_r($b)."<br>";
+print('<br>');
 
-
-
-
-
-
-
-
-
-
-
-// foreach($a as $v){
-//   echo $v ."<br>";
-// }
-
-// $b = array(0 => 'hello',
-//            1 => 'javascript',
-//            2 => 'php');
-// print_r($b)."<br>";
-// print('<br>');
-
-// $c = ['hello','javascript','php'];
-// print_r($c)."<br>";
-// print('<br><br>');
+$c = ['hello','javascript','php'];
+print_r($c)."<br>";
+print('<br><br>');
 
 // --------- 關聯陣列 ---------
 print "關聯陣列<br>";
@@ -43,11 +25,7 @@ $arr = ['username' => 'troie',
         'phone' => '0980123456'];
 $arr['address'] = 'taoyuan';
 print_r($arr)."<br>";
-// print('<br><br>');
-// print "<table><tr><td>username</td><td>email</td><td>phone</td><td>address</td></tr>"."<tr><td>".$arr['username']."</td><td>".$arr['email']."</td><td>". $arr['phone']."</td><td>".$arr['address']."</td></tr></table>";
-// foreach($arr as $key =>$value){
-//   echo $key."=>".$value."<br>";
-// }
+
 
 // --------- 多維陣列 ---------
 print "多維陣列<br>";
@@ -71,18 +49,3 @@ $member = [
   }
   ?>
 </ul>
-<?php
-foreach($member as $v){
-  echo $v[2]."aa<br>";
-}
-print_r($member[1][2])."<br>";
-$member[]=[5,'james','kames@hello.com'];
-print_r($member)."<br>";
-echo "count member=".count($member);
-
-$hello[]='html';
-print_r($hello)."<br>";
-$hello[]='css';
-$hello[]='javascript';
-print_r($hello)."<br>";
-?>
