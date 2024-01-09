@@ -15,8 +15,7 @@ function page_header($title) {
           <li><a href="/">home</a></li>
           <li><a href="/hello.php">醫學中心</a></li>
           <li><a href="https://medium.com/maolah" target="_blank">blog</a></li>
-          <li><a href="#mc_embed_signup">contact</a></li>
-          
+          <li><a href="form.php">contact</a></li>
       </ul>
   </nav>
     <header>
@@ -27,6 +26,15 @@ function page_header($title) {
 
 function page_footer(){
   echo'</div><footer>&copy; 2023 design by <a href="https://maolah.fun" target="_blank">maolah design</a></footer></body></html>';
+}
+
+function get_csv(){
+  $filename = "hello.csv";
+  $handle = fopen($filename, "r");
+  $rel = fgetcsv($handle);
+  fclose($handle);
+  // return $data;
+  print_r($rel);
 }
 
 function get_data(){
@@ -86,5 +94,70 @@ function get_information($id){
   }
   $table .= '</table>'."\n";
   echo $table;
+}
+
+// 印出表單
+function show_form(){
+  print<<<_HTML_
+  <div class="container myform">
+      <form action="$_SERVER[PHP_SELF]" method="post">
+          <label for="username">username:</label>
+          <input type="text" id="username" name="username" >
+          <label for="email">email</label>
+          <input type="text" id="email" name="email" >
+          <label for="phone">phone</label>
+          <input type="text" id="phone" name="phone" >
+          <label for="email">password</label>
+          <input type="text" id="password" name="password" >
+          <label for="repassword">confirm password</label>
+          <input type="text" id="repassword" name="repassword" >
+
+          <label>favorite language</label>
+          <input class="select" type="radio" id="html" name="fav_language" value="HTML">
+          <label for="html">HTML</label><br>
+          <input class="select" type="radio" id="css" name="fav_language" value="CSS">
+          <label for="css">CSS</label><br>
+          <input class="select" type="radio" id="javascript" name="fav_language" value="JavaScript">
+          <label for="javascript">JavaScript</label>
+
+          <label>language</label>
+          <input class="select" type="checkbox" id="lang1" name="language" value="HTML">
+          <label for="lang1">HTML</label><br>
+          <input class="select" type="checkbox" id="lang2" name="language" value="CSS">
+          <label for="lang2">CSS</label><br>
+          <input class="select" type="checkbox" id="lang3" name="language" value="JavaScript">
+          <label for="lang3">JavaScript</label>
+          <input type="hidden" id="custId" name="custId" value="3487">
+          <input type="submit" name="subscribe" class="button" value="Register">
+      </form>
+      <a href="/">back to home</a>
+  </div>
+  _HTML_;  
+}
+
+// 檢查表單資料填寫正確性
+function validate_form(){
+  $errors = array();
+  if(empty($username)){
+    $errors[] = "username is required";
+  }
+  if(empty($email)){
+    $errors[] = "email is required";
+  }
+  return $errors;
+}
+// 印出表單結果
+function procees_form(){
+  print<<< _HTML_
+    <table>
+      <tr><td>Username</td><td>{$_POST['username']}</td></tr>
+      <tr><td>Email</td><td>{$_POST['email']}</td></tr>
+      <tr><td>Phone</td><td>{$_POST['phone']}</td></tr>
+      <tr><td>Password</td><td>{$_POST['password']}</td></tr>
+      <tr><td>RePassword</td><td>{$_POST['repassword']}</td></tr>
+      <tr><td>FavLanguage</td><td>{$_POST['fav_language']}</td></tr>
+      <tr><td>Language</td><td>{$_POST['language']}</td></tr>
+    </table>
+  _HTML_;
 }
 ?>

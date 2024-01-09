@@ -18,7 +18,8 @@ page_header('Hi I am troie');
 
               <h2>Projects</h2>
               <ul class="list">
-                <li><a href="https://maolah.com/ax/" target="_blank">Archex 上海創新孵化團隊</a></li>
+                <li><a href="https://maolah.fun/" target="_blank">Learn for Fun</a></li>
+                <li><a href="https://maolah.com/ax/" target="_blank">archex 上海創新孵化團隊</a></li>
                 <li><a href="https://maolah.com/project/pebbo/" target="_blank">PEBBO eXperience Design 體驗設計公司</a></li>
                 <li><a href="https://maolah.com/bv/" target="_blank">BREAD VENTURES 紐約創投公司</a></li>
                 <li><a href="https://maolah.com/project/NYU/">New York University 全球招⽣網站</a></li>
